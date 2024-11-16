@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Perfil do Usuário</h1>
+  </header>
+  <main class="content">
+    <h2>Dados do Usuário</h2>
+    <div id="dados-usuario">
+    </div>
+  </main>
+  <script>
+    const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
+    if (dadosUsuario) {
+      document.getElementById("dados-usuario").innerHTML = `
+        <p><strong>Nome:</strong> ${dadosUsuario.nome}</p>
+        <p><strong>Email:</strong> ${dadosUsuario.email}</p>
+        <p><strong>Telefone:</strong> ${dadosUsuario.telefone}</p>
+        <p><strong>CPF:</strong> ${dadosUsuario.cpf}</p>
+      `;
+    } else {
+      document.getElementById("dados-usuario").innerHTML = "<p>Nenhum dado encontrado.</p>";
+    }
+    
+  </script>
+</body>
+</html>
